@@ -1,16 +1,15 @@
 const flashcards = document.getElementById("flashcards");
-const createBox = document.getElementsByClassName("create-box");
+const createBox = document.querySelector(".create-box");
 const question = document.getElementById("question");
 const answer = document.getElementById("answers");
 const saveBtn = document.getElementById("save");
-const deleteBtn = document.getElementById("delete");
-
-deleteBtn.addEventListener("click", () => console.log("nope"));
+const closeBtn = document.getElementById("close");
+const newBtn = document.querySelector("#new-card");
+const delBtn = document.querySelector("#delete-card");
 
 let contentArray = localStorage.getItem("items")
   ? JSON.parse(localStorage.getItem("items"))
   : [];
-// contentArray.forEach(divMaker);
 const divMaker = (text) => {
   const div = document.createElement("div");
   const h2_question = document.createElement("h2");
@@ -20,7 +19,7 @@ const divMaker = (text) => {
 
   h2_question.setAttribute(
     "style",
-    "border-top:1px solid red; padding: 15px; margin-top: 30px"
+    "border-top:1px solid; padding: 15px; margin-top: 30px"
   );
   h2_answer.setAttribute("style", "text-align:center; display:none; color:red");
 
@@ -37,6 +36,9 @@ const divMaker = (text) => {
 
   flashcards.appendChild(div);
 };
+const closeModule = () => (createBox.style.display = "none");
+
+const openModule = () => (createBox.style.display = "block");
 const addFlashCard = () => {
   let flashCardsInfo = {
     theQuestion: question.value,
@@ -48,5 +50,10 @@ const addFlashCard = () => {
   question.value = "";
   answer.value = "";
 };
-
+const deleteCards = () => {
+  flashcards.innerHTML = "";
+};
 saveBtn.addEventListener("click", () => addFlashCard());
+closeBtn.addEventListener("click", () => closeModule());
+newBtn.addEventListener("click", () => openModule());
+delBtn.addEventListener("click", () => deleteCards());

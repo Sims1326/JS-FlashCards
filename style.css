@@ -7,7 +7,7 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1rem;
-  background-color: antiquewhite;
+  background-color: rgba(0, 0, 25);
 }
 header {
   background-color: azure;
@@ -64,44 +64,20 @@ button:hover {
   width: fit-content;
 }
 
-.flashcards {
+#flashcards {
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 100%;
   margin: auto;
-  margin-top: 10px;
-  padding: 0 10px;
+  width: 100%;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .flashcard {
   width: 370px;
   height: 200px;
+  border-radius: 10px;
   word-wrap: break-word;
   margin: 10px;
-  background-color: white;
-  box-shadow: 0 2px 4px 0 black;
-}
-
-@media (max-width: 768px) {
-  .flashcard {
-    margin: auto;
-  }
-
-  .flashcards {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-@media (max-width: 480px) {
-  .nav {
-    flex-direction: column;
-    align-items: center;
-  }
-  .create-box {
-    width: 100%;
-  }
-  .flashcard {
-    width: 100%;
-  }
+  background: linear-gradient(to bottom right, teal, pink);
+  box-shadow: 0 2px 4px 0 white;
 }
