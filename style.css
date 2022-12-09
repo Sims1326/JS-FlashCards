@@ -67,6 +67,7 @@ button:hover {
 #flashcards {
   display: flex;
   margin: auto;
+  justify-content: center;
   width: 100%;
   align-items: flex-start;
   flex-wrap: wrap;
